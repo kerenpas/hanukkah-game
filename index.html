@@ -11,17 +11,42 @@
             .slide {
                 display: none;
                 padding: 1rem;
+                min-height: 80vh; /* הוספת גובה מינימלי */
+                margin: 2rem auto; /* הוספת מרווח אוטומטי בצדדים */
+                max-width: 90vw; /* הגבלת רוחב מקסימלי */
             }
 
             @media (min-width: 768px) {
                 .slide {
                     padding: 2rem;
+                    min-height: 85vh; /* גובה גדול יותר במסכים גדולים */
                 }
             }
 
             .slide.active {
-                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
+
+              /* התאמת גודל התמונות */
+              .slide img {
+                max-height: 40vh;
+                object-fit: contain;
+            }
+
+             /* הגדלת המרווחים בתוך השקופיות */
+             .slide > div {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+
 
             /* כותרות רספונסיביות */
             h1 {
@@ -517,9 +542,9 @@
         <!-- סרגל ניווט -->
         <div id="navigation-bar">
             <div class="container mx-auto max-w-4xl flex justify-between items-center">
-                <button onclick="prevSlide()" id="prev-btn" class="nav-button">➡️ </button>
+                <button onclick="prevSlide()" id="prev-btn" class="nav-button">⬅️ הקודם</button>
                 <div class="nav-dots" id="slide-dots"></div>
-                <button onclick="nextSlide()" id="next-btn" class="nav-button"> ⬅️</button>
+                <button onclick="nextSlide()" id="next-btn" class="nav-button">הבא ➡️</button>
             </div>
         </div>
 
